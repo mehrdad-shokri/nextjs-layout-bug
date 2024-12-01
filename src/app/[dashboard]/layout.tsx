@@ -7,11 +7,18 @@ const Layout = ({children}: {
 }) => {
     console.log('Layout')
     const [counter, setCounter] = useState(0)
+
+    const revalidate = () => {
+        console.log('counter before:', counter)
+        setCounter(5)
+        console.log('after update', counter)
+    }
+    console.log('render', counter)
     return (
         <div>
             <h1>Layout</h1>
             <div>
-                <button onClick={() => setCounter(prev => prev + 1)}>increase counter</button>
+                <button onClick={() => revalidate()}>increase counter</button>
             </div>
 
             <div>counter: {counter}</div>
